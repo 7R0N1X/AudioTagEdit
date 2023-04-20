@@ -5,26 +5,26 @@ AudioTagEdit es una aplicación de escritorio que permite convertir archivos de 
 
 **Nota:** Por efecto de práctica la aplicación está configurada para trabajar con datos preestablecidos en el código fuente, por lo que deberás modificarlo para adaptarlo a tus necesidades.
 
-###Requerimientos
+### Requerimientos
 Para ejecutar AudioTagEdit se requiere tener instalado:
 - Java Runtime Environment (JRE) 8 o superior
 - FFmpeg instalado en la máquina
 - Apache NetBeans IDE 17 o superior
 
-###Instalación
+### Instalación
 Para empezar a utilizar este proyecto, sigue los pasos que se indican a continuación:
 - Clona el repositorio: https://github.com/7R0N1X/AudioTagEdit.git
 - Abre el proyecto en el entorno de desarrollo especificado en los requerimientos
 
-###Uso
+### Uso
 1. Ejecuta la clase main.java
 2. Carga una carpeta que contenga archivos de audio
 3. Carga una imagen que sirva de cover para tus archivos de audio
 4. Preciona el boton editar todos los archivos
 
-###Licencia
+### Licencia
 AudioTagEdit es un proyecto de código abierto de [7R0N1X](https://github.com/7R0N1X "7R0N1X") licenciado por [MIT](https://github.com/7R0N1X/AudioTagEdit/blob/main/LICENSE "MIT"). 7R0N1X se reserva el derecho de cambiar la licencia para futuras versiones.
 
-###Licencias de bibliotecas de terceros
+### Licencias de bibliotecas de terceros
 - [mp3agic](https://github.com/mpatric/mp3agic "mp3agic") - [Licencia](https://github.com/mpatric/mp3agic/blob/master/mit-license.txt "Licencia")
 - [FFmpeg](https://github.com/FFmpeg/FFmpeg "FFmpeg") - [Licencia](https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md "Licencia")
