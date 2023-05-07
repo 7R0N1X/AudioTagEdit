@@ -29,7 +29,7 @@ public class AudioConverter {
             // Se obtiene la extensión del archivo y se convierte a minúsculas
             String extension = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
             // Si la extensión no es una de las permitidas, se muestra un mensaje y se pasa al siguiente archivo
-            if (!extension.equals("wav") && !extension.equals("flac") && !extension.equals("m4a")) {
+            if (!extension.equals("wav") && !extension.equals("flac") && !extension.equals("m4a") && !extension.equals("aif")) {
                 System.out.println("Archivo " + fileName + " no es compatible, se omite.");
                 continue;
             }

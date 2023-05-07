@@ -27,14 +27,14 @@ import view.Main;
  * @author 7R0N1X
  */
 public class FileManager {
-
+    
     private String path, pathImg, data, folderName, newPath;
     private final Tag tag;
-
+    
     public FileManager(Tag tag) {
         this.tag = tag;
     }
-
+    
     public void selectFolder(JTextField folderPath) {
         JFileChooser jFile = new JFileChooser();
         jFile.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -46,7 +46,7 @@ public class FileManager {
             folderPath.setText(path);
         }
     }
-
+    
     public void selectCover(JLabel labelName, Main view) {
         JFileChooser jFile = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG", "jpg", "png");
@@ -57,7 +57,7 @@ public class FileManager {
             adaptImage(labelName, view, pathImg);
         }
     }
-
+    
     public void adaptImage(JLabel labelName, Main view, String pathImg) {
         Image img = new ImageIcon(pathImg).getImage();
         ImageIcon icon = new ImageIcon(img.getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_SMOOTH));
@@ -65,12 +65,12 @@ public class FileManager {
         labelName.setIcon(icon);
         view.repaint();
     }
-
+    
     public void labelConfiguration() throws IOException, InterruptedException {
         createFolder(path);
         AudioConverter audioConverter = new AudioConverter(path, path);
         deleteFiles(path);
-
+        
         try (DirectoryStream<Path> ds = Files.newDirectoryStream(Paths.get(path))) {
             for (Path path : ds) {
                 if (path.getFileName().toString().endsWith(".mp3")) {
@@ -92,14 +92,14 @@ public class FileManager {
                     id3v2Tag.setComment("");
                     id3v2Tag.setPublisher(tag.getPublisher());
                     id3v2Tag.setCopyright(tag.getCopyright());
-
+                    
                     byte[] bytes;
                     try (RandomAccessFile file = new RandomAccessFile(pathImg, "r")) {
                         bytes = new byte[(int) file.length()];
                         file.read(bytes);
                     }
                     id3v2Tag.setAlbumImage(bytes, "image/jpeg");
-
+                    
                     mp3file.save(newPath + "\\" + path.getFileName().toString());
                 }
             }
@@ -109,35 +109,36 @@ public class FileManager {
             System.err.println("Error aaaaa: " + e.toString());
         }
     }
-
+    
     String removeExtension(String nameFile) {
         int quantity = 4;
         String newTitle = nameFile.substring(0, nameFile.length() - quantity);
         return newTitle;
     }
-
+    
     void deleteFiles(String path) {
         File file = new File(path);
         File[] filesToDelete = file.listFiles((dir, nombre)
                 -> nombre.toLowerCase().endsWith(".wav")
                 || nombre.toLowerCase().endsWith(".m4a")
-                || nombre.toLowerCase().endsWith(".flac"));
+                || nombre.toLowerCase().endsWith(".flac")
+                || nombre.toLowerCase().endsWith("aif"));
         for (File f : filesToDelete) {
             f.delete();
         }
     }
-
+    
     public void createFolder(String path) {
         File file = new File(path + "/Modified files");
         if (!file.exists()) {
             if (file.mkdirs()) {
                 newPath = file.toString();
             }
-        }else{
+        } else {
             newPath = file.toString();
         }
     }
-
+    
     public void generateList() throws IOException {
         createFolder(path);
         String path = newPath + "\\" + folderName + ".txt";
