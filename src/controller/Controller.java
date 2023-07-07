@@ -10,6 +10,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import model.FileManager;
 import model.Tag;
+import model.VideoConverter;
 import view.Main;
 
 /**
@@ -21,6 +22,7 @@ public class Controller implements ActionListener {
     private final Main viewMain;
     private final Tag tag;
     private final FileManager fileManager;
+    private VideoConverter videoConverter;
 
     public Controller(Main viewMain, Tag tag, FileManager fileManager) {
         this.viewMain = viewMain;
@@ -29,6 +31,7 @@ public class Controller implements ActionListener {
 
         this.viewMain.JMI_SelectFolder.addActionListener(this);
         this.viewMain.JMI_SelectCover.addActionListener(this);
+        this.viewMain.JMI_MP4ToMP3.addActionListener(this);
         this.viewMain.JMI_EditAllFiles.addActionListener(this);
         this.viewMain.JMI_GenerateList.addActionListener(this);
     }
@@ -59,6 +62,16 @@ public class Controller implements ActionListener {
         }
         if (e.getSource() == viewMain.JMI_SelectCover) {
             fileManager.selectCover(viewMain.JL_Cover, viewMain);
+        }
+        if(e.getSource() == viewMain.JMI_MP4ToMP3){
+            try {
+                videoConverter = new VideoConverter(fileManager.getPath(), fileManager.getPath());
+            } catch (IOException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
         if (e.getSource() == viewMain.JMI_EditAllFiles) {
             try {

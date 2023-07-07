@@ -160,4 +160,9 @@ public class FileManager {
             System.out.println("Error: " + e.toString());
         }
     }
+
+    public String getPath() {
+        return path;
+    }
+    
 }

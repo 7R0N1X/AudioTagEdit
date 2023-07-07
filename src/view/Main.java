@@ -33,6 +33,7 @@ public class Main extends javax.swing.JFrame {
         JMI_SelectFolder = new javax.swing.JMenuItem();
         JMI_SelectCover = new javax.swing.JMenuItem();
         JM_Tools = new javax.swing.JMenu();
+        JMI_MP4ToMP3 = new javax.swing.JMenuItem();
         JMI_EditAllFiles = new javax.swing.JMenuItem();
         JMI_GenerateList = new javax.swing.JMenuItem();
 
@@ -159,6 +160,10 @@ public class Main extends javax.swing.JFrame {
         JM_Tools.setText("Tools");
         JM_Tools.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        JMI_MP4ToMP3.setText("MP4 to MP3");
+        JMI_MP4ToMP3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JM_Tools.add(JMI_MP4ToMP3);
+
         JMI_EditAllFiles.setText("Edit All Files");
         JMI_EditAllFiles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JMI_EditAllFiles.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -198,6 +203,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuBar JMB_Menu;
     public javax.swing.JMenuItem JMI_EditAllFiles;
     public javax.swing.JMenuItem JMI_GenerateList;
+    public javax.swing.JMenuItem JMI_MP4ToMP3;
     public javax.swing.JMenuItem JMI_SelectCover;
     public javax.swing.JMenuItem JMI_SelectFolder;
     private javax.swing.JMenu JM_File;
